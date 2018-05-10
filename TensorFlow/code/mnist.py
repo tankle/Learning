@@ -9,6 +9,7 @@ import numpy as np
 from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
 
 mnist = read_data_sets('MNIST_data', one_hot=True)
+mnist.count()
 print("read data end")
 x_data = tf.placeholder("float", shape=[None, 784])
 y_data = tf.placeholder("float", shape=[None, 10])
