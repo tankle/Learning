@@ -51,7 +51,7 @@ def inference(input_tensor, regularize):
 # 以下是实现了LeNet-5 的卷积模型
 def inference_cnn(input_tensor, train, regularize):
     """
-
+    总共7层， 输入=》卷积=》池化=》卷积=》池化=》全连接=》全连接=》softmax 输出概率
     :param input_tensor:
     :param train:       是否是训练
     :param regularize:

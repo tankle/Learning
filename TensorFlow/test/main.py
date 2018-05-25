@@ -54,17 +54,22 @@ def test_tf():
 
     ss = tf.reduce_sum(concated, axis=1, keep_dims=True)
     print(sess.run(ss))
-
-    movie_categories_embed_matrix = tf.Variable(tf.random_uniform([5, 3], -1, 1), name="movie_categories_embed_matrix")
+    print("matrix ")
+    movie_categories_embed_matrix = tf.Variable(tf.random_uniform([18, 32], -1, 1), name="movie_categories_embed_matrix")
     sess.run(tf.global_variables_initializer())
-    movie_categories_embed_layer = tf.nn.embedding_lookup(movie_categories_embed_matrix, [0, 1], name="movie_categories_embed_layer")
+    movie_categories_embed_layer = tf.nn.embedding_lookup(movie_categories_embed_matrix, [[0, 1]], name="movie_categories_embed_layer")
     movie_title_embed_layer_expand = tf.expand_dims(movie_categories_embed_layer, -1)
     print(sess.run(movie_categories_embed_matrix))
-    print(sess.run(movie_categories_embed_layer))
+    print("embed layer: ")
+    rlt = sess.run(movie_categories_embed_layer)
+    print(rlt)
+    print("shape: ", rlt.shape)
     print(sess.run(movie_title_embed_layer_expand))
-
+    print("reduce_sum")
     ss = tf.reduce_sum(movie_categories_embed_layer, axis=1, keep_dims=True)
-    print(sess.run(ss))
+    val = sess.run(ss)
+    print(val)
+    print("shape: ", val.shape)
 
 if __name__ == "__main__":
     # test_re()
